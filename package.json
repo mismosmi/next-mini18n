@@ -1,0 +1,7 @@
+{
+    "name": "tsi18n",
+    "version": "0.1.0",
+    "description": "Simple Internationalization library",
+    "private": true,
+    "workspaces": ["packages/*", "examples/*"]
+}
