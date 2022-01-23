@@ -1,19 +1,17 @@
-import { Outlet, Link, LoaderFunction, useParams, useLoaderData } from "remix";
+import { Outlet, LoaderFunction } from "remix";
 import commonI18n from "./common.i18n.server";
-import { loadTranslations, useTranslations } from "@tsi18n/core";
+import { loadTranslations, useLoaderTranslations } from "@tsi18n/remix";
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export const loader: LoaderFunction = async ({ params }) => {
   const { locale } = params;
 
   return {
-    i18n: loadTranslations(commonI18n, locale as string),
+    tsi18n: loadTranslations(commonI18n, locale as string),
   };
 };
 
 export default function Parent() {
-  const data = useLoaderData();
-  const t = useTranslations<typeof commonI18n>(data.i18n);
-  const params = useParams();
+  const t = useLoaderTranslations<typeof commonI18n>();
 
   return (
     <div>

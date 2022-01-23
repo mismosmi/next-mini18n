@@ -1,4 +1,4 @@
-import { TranslationInTransport } from "./Translations";
+import { I18nInTransport } from "./types";
 
 export class TranslationStore {
   private _locale: string | null = null;
@@ -6,7 +6,7 @@ export class TranslationStore {
 
   constructor(private readonly _key: string = "tsi18n_cached") {}
 
-  update(i18n: TranslationInTransport): void {
+  update(i18n: I18nInTransport): void {
     const [locale, namespaces] = i18n;
 
     if (this._locale !== locale) {
