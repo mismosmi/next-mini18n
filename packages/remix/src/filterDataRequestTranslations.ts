@@ -9,7 +9,10 @@ export async function filterDataRequestTranslations(
 ): Promise<Response> {
   const cookie = createCookie(cookieName);
 
-  const cached = await cookie.parse(request.headers.get("Cookie"));
+  const cached = (await cookie.parse(request.headers.get("Cookie"))) ?? [
+    null,
+    [],
+  ];
 
   if (response.ok) {
     let body;
