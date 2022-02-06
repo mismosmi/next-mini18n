@@ -1,10 +1,5 @@
 import { renderToString } from "react-dom/server";
-import {
-  HandleDataRequestFunction,
-  RemixServer,
-  createCookie,
-  json,
-} from "remix";
+import { HandleDataRequestFunction, RemixServer } from "remix";
 import type { EntryContext } from "remix";
 import {
   filterRequestTranslations,
