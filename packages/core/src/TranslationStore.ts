@@ -1,7 +1,9 @@
+import { deserialize } from ".";
 import { I18nInTransport } from "./types";
 
 export class TranslationStore {
   private _locale: string | null = null;
+  private _deserializeObject: ((obj: unknown) => unknown) | null = null;
   private _data: Record<string, Record<string, unknown>> = {};
 
   update(i18n: I18nInTransport): void {
@@ -9,7 +11,13 @@ export class TranslationStore {
 
     if (this._locale !== locale) {
       this._locale = locale;
-      this._data = Object.fromEntries(namespaces);
+      this._deserializeObject = deserialize(locale);
+      this._data = Object.fromEntries(
+        namespaces.map(([name, messages]) => [
+          name,
+          this._deserializeObject(messages),
+        ])
+      );
       return;
     }
 
