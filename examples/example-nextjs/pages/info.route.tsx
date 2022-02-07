@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 
-const Info: NextPage<{}> = () => (
+const Info: NextPage = () => (
   <main>
     <h3>Info</h3>
     <p>

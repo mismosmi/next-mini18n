@@ -12,7 +12,7 @@
     "watch:esm": "tsc --watch",
     "watch:cjs": "tsc -p tsconfig.cjs.json --watch",
     "watch": "concurrently 'yarn watch:esm' 'yarn watch:cjs'",
-    "lint": "prettier --write src && eslint --fix src/**/*.ts"
+    "lint": "prettier --write src && eslint --fix src/**/*.ts && tsc --noEmit"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",

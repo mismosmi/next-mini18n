@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && tsc"
   },
   "dependencies": {
     "@tsi18n/next": "0.1.0",

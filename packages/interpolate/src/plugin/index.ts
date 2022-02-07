@@ -8,7 +8,7 @@ export class Tsi18nInterpolatePlugin implements Tsi18nPlugin<Payload, Value> {
     return (params) => {
       return serializedData.payload.replace(
         Tsi18nInterpolatePlugin.pattern,
-        (match) => {
+        (match: string) => {
           const [name] = match.slice(1, -1).split(":") as [
             string,
             string | undefined

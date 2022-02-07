@@ -12,10 +12,9 @@
     "watch:esm": "tsc --watch",
     "watch:cjs": "tsc -p tsconfig.cjs.json --watch",
     "watch": "concurrently 'yarn watch:esm' 'yarn watch:cjs'",
-    "lint": "prettier --write src && eslint --fix src/**/*.ts"
+    "lint": "prettier --write src && eslint --fix src/**/*.ts && tsc --noEmit"
   },
   "devDependencies": {
-    "@tsi18n/core": "0.1.0",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "concurrently": "^7.0.0",
