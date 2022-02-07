@@ -4,8 +4,6 @@ export class TranslationStore {
   private _locale: string | null = null;
   private _data: Record<string, Record<string, unknown>> = {};
 
-  constructor(private readonly _key: string = "tsi18n_cached") {}
-
   update(i18n: I18nInTransport): void {
     const [locale, namespaces] = i18n;
 

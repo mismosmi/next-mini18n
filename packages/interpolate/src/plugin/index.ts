@@ -1,10 +1,14 @@
 import type { SerializedPluginData, Tsi18nPlugin } from "@tsi18n/core";
-import { Payload, PluginKey, Value } from "../types";
+import { Payload, PluginKey, InterpolateFn } from "../types";
 
-export class Tsi18nInterpolatePlugin implements Tsi18nPlugin<Payload, Value> {
+export default class Tsi18nInterpolatePlugin
+  implements Tsi18nPlugin<Payload, InterpolateFn>
+{
   readonly pluginKey: PluginKey = "@tsi18n/i";
 
-  deserialize(serializedData: SerializedPluginData<Payload, Value>): Value {
+  deserialize(
+    serializedData: SerializedPluginData<Payload, InterpolateFn>
+  ): InterpolateFn {
     return (params) => {
       return serializedData.payload.replace(
         Tsi18nInterpolatePlugin.pattern,

@@ -12,14 +12,19 @@
     "watch:esm": "tsc --watch",
     "watch:cjs": "tsc -p tsconfig.cjs.json --watch",
     "watch": "concurrently 'yarn watch:esm' 'yarn watch:cjs'",
-    "lint": "prettier --write src && eslint --fix src/**/*.ts"
+    "lint": "prettier --write src && eslint --fix src/**/*.ts",
+    "test": "jest"
   },
   "devDependencies": {
+    "@swc/core": "^1.2.137",
+    "@swc/jest": "^0.2.17",
+    "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "concurrently": "^7.0.0",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
+    "jest": "^27.5.0",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4"
   },
