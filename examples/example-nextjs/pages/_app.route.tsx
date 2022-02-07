@@ -1,10 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { useTranslations } from "@tsi18n/core";
+import { useLoadedTranslations } from "@tsi18n/next";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log("render app", pageProps);
-  useTranslations(pageProps.i18n);
+  useLoadedTranslations(pageProps.tsi18n);
   return <Component {...pageProps} />;
 }
 

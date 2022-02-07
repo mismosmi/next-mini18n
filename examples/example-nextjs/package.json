@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tsi18n/core": "0.1.0",
+    "@tsi18n/next": "0.1.0",
     "cookies": "^0.8.0",
     "next": "12.0.8",
     "react": "17.0.2",

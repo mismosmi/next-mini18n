@@ -23,8 +23,6 @@ export function useTranslations(
 
   const [i18n, ns] = typeof arg0 === "string" ? [null, arg0] : [arg0, arg1];
 
-  console.log(i18n);
-
   if (i18n && previousI18n.current !== i18n) {
     cx.update(i18n);
     previousI18n.current = i18n;

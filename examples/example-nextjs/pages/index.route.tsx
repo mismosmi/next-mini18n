@@ -1,53 +1,19 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import i18n from "./index.i18n";
-import {
-  filterTranslations,
-  loadTranslations,
-  TranslationInTransport,
-  useTranslations,
-} from "@tsi18n/core";
+import { loadTranslations, useTranslations, I18nProps } from "@tsi18n/next";
 import Link from "next/link";
-import Cookies from "cookies";
 
-export const getServerSideProps: GetServerSideProps = async ({
-  locale,
-  req,
-  res,
-}) => {
-  const cookies = new Cookies(req, res);
-
-  const isDataRequest = req.url?.startsWith("/_next/data");
-
-  const translations = loadTranslations(i18n, locale as string);
-
-  if (isDataRequest) {
-    const cookieValue = cookies.get("tsi18n_cached");
-    const cached = cookieValue ? JSON.parse(cookieValue) : [null, []];
-
-    filterTranslations(translations, cached);
-
-    cookies.set("tsi18n_cached", JSON.stringify(cached), {
-      httpOnly: true,
-      sameSite: "strict",
-    });
-  } else {
-    cookies.set(
-      "tsi18n_cached",
-      JSON.stringify([locale, translations[1].map(([ns]) => ns)])
-    );
-  }
-
+export const getServerSideProps: GetServerSideProps<I18nProps> = async (cx) => {
   return {
     props: {
-      i18n: translations,
+      tsi18n: loadTranslations(i18n, cx),
     },
   };
 };
 
-const Home: NextPage<{ i18n: TranslationInTransport }> = (props) => {
+const Home: NextPage = () => {
   const t = useTranslations<typeof i18n, "home">("home");
 
   return (

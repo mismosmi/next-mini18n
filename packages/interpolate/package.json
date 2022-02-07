@@ -1,0 +1,32 @@
+{
+  "name": "@tsi18n/interpolate",
+  "version": "0.1.0",
+  "description": "Simple Internationalization library",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "author": "Michel Smola <a@michelsmola.de>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.cjs.json",
+    "watch:esm": "tsc --watch",
+    "watch:cjs": "tsc -p tsconfig.cjs.json --watch",
+    "watch": "concurrently 'yarn watch:esm' 'yarn watch:cjs'",
+    "lint": "prettier --write src && eslint --fix src/**/*.ts"
+  },
+  "devDependencies": {
+    "@tsi18n/core": "0.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@tsi18n/core": "0.1.0",
+    "tslib": "^2.3.1"
+  },
+  "sideEffects": false
+}
