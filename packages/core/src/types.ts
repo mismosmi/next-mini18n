@@ -1,10 +1,14 @@
 import { SerializedPluginData } from "./Plugin";
 
-export type Message = string | null | SerializedPluginData<unknown, unknown>;
-
 export interface MessagesDefinition {
-  [key: string]: Message | MessagesDefinition;
+  [key: string]:
+    | string
+    | null
+    | SerializedPluginData<unknown, unknown>
+    | MessagesDefinition;
 }
+
+export type Message = MessagesDefinition[keyof MessagesDefinition];
 
 export type NamespaceDefinition = Record<string, MessagesDefinition>;
 
@@ -22,12 +26,17 @@ export type I18nInTransport<T extends I18nDefinition = I18nDefinition> = [
   [GetNamespaces<T>, GetMessages<T>][]
 ];
 
-type MessageValues<M extends MessagesDefinition> = {
-  [key in keyof M]: M[key] extends SerializedPluginData<unknown, unknown>
-    ? M[key]["value"]
-    : M[key] extends Record<string, MessagesDefinition>
-    ? MessageValues<M[key]>
-    : M;
+export type MessageValue<M extends Message> = M extends SerializedPluginData<
+  unknown,
+  unknown
+>
+  ? M["value"]
+  : M extends MessagesDefinition
+  ? MessageValues<M>
+  : M;
+
+export type MessageValues<M extends MessagesDefinition> = {
+  [key in keyof M]: MessageValue<M[key]>;
 };
 
 export type Messages<

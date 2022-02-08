@@ -1,3 +1,5 @@
+import { Message } from ".";
+
 export interface SerializedPluginData<P, V> {
   $plugin: string;
   value?: V;
@@ -26,7 +28,7 @@ function isSerializedPluginData(
 }
 
 export function deserialize(locale: string) {
-  function deserializeObject(obj: unknown): unknown {
+  function deserializeObject(obj: Message): unknown {
     if (typeof obj === "string") {
       return obj;
     }
