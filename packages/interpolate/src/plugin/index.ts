@@ -1,34 +1,51 @@
-import type { SerializedPluginData, Tsi18nPlugin } from "@tsi18n/core";
+import {
+  isSerializedPluginData,
+  SerializedPluginData,
+  Tsi18nPlugin,
+} from "@tsi18n/core";
 import { Payload, PluginKey, InterpolateFn } from "../types";
 
-export default class Tsi18nInterpolatePlugin
-  implements Tsi18nPlugin<Payload, InterpolateFn>
-{
-  readonly pluginKey: PluginKey = "@tsi18n/i";
+export default class Tsi18nInterpolatePlugin extends Tsi18nPlugin<
+  Payload,
+  InterpolateFn
+> {
+  static readonly pluginKey: PluginKey = "@tsi18n/i";
 
   deserialize(
-    serializedData: SerializedPluginData<Payload, InterpolateFn>
+    serializedData: SerializedPluginData<Payload, InterpolateFn>,
+    locale: string,
+    deserializeObject: (
+      serializedData: SerializedPluginData<unknown, (param: unknown) => string>
+    ) => (param: unknown) => string
   ): InterpolateFn {
     return (params) => {
-      return serializedData.payload.replace(
-        Tsi18nInterpolatePlugin.pattern,
-        (match: string) => {
-          const [name] = match.slice(1, -1).split(":") as [
-            string,
-            string | undefined
-          ];
+      return serializedData.payload
+        .map((part) => {
+          switch (typeof part) {
+            case "string":
+              return part;
+            case "object": {
+              const value = params[part.p];
 
-          const replacement = params[name];
+              if (typeof value === "undefined") {
+                throw new Error(`Missing parameter "${part.p}"`);
+              }
 
-          if (!replacement) {
-            throw new Error(`Missing Parameter "${name}"`);
+              if (isSerializedPluginData(part)) {
+                const formatter = deserializeObject(part);
+
+                return formatter(value);
+              }
+
+              if ("d" in part) {
+                return parseFloat(value).toFixed(part.d);
+              }
+
+              return value;
+            }
           }
-
-          return replacement;
-        }
-      );
+        })
+        .join("");
     };
   }
-
-  private static readonly pattern = /\{[a-zA-Z0-9:.]+\}/g;
 }
