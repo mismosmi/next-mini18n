@@ -74,3 +74,6 @@ does not and can not work with `getStaticProps`.
 * It needs very little client side code (and very little on the server side as well)
 * You get nice completions when writing components
 * You get type errors when removing or renaming translations that are used somewhere
+
+## Examples
+Well, take a look in the examples-folder. There's one with NextJS and one with Remix.run
