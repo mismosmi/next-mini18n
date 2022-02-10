@@ -59,8 +59,6 @@ describe("@tsi18n/interpolate", () => {
       ],
     ] = transport;
 
-    console.log(name);
-
     expect(name).toStrictEqual({
       p: "name",
       $plugin: "@tsi18n/i",
