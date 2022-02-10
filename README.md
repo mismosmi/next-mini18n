@@ -77,3 +77,6 @@ does not and can not work with `getStaticProps`.
 
 ## Examples
 Well, take a look in the examples-folder. There's one with NextJS and one with remix.run
+
+## Docs
+* [Interpolation](docs/INTERPOLATION.md)
