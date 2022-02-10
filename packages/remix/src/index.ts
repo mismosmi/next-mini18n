@@ -2,4 +2,4 @@ export * from "./filterDataRequestTranslations";
 export * from "./filterRequestTranslations";
 export * from "./useLoaderTranslations";
 export * from "./useTranslations";
-export { loadTranslations } from "@tsi18n/react";
+export { loadTranslations, usePlugins } from "@tsi18n/react";

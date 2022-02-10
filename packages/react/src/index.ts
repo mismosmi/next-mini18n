@@ -6,3 +6,4 @@ export type {
   I18nInTransport,
   Messages,
 } from "@tsi18n/core";
+export { usePlugins } from "./usePlugins";
