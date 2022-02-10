@@ -21,9 +21,12 @@ export class TranslationStore {
       return;
     }
 
-    for (const [ns, translations] of namespaces) {
+    for (const [ns, messages] of namespaces) {
       if (!(ns in this._data)) {
-        this._data[ns] = translations;
+        this._data[ns] = this._deserializeObject(messages) as Record<
+          string,
+          unknown
+        >;
       }
     }
   }
