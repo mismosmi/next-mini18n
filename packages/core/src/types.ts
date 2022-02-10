@@ -30,7 +30,7 @@ export type MessageValue<M extends Message> = M extends SerializedPluginData<
   unknown,
   unknown
 >
-  ? M["value"]
+  ? M["v"]
   : M extends MessagesDefinition
   ? MessageValues<M>
   : M;

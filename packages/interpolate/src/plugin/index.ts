@@ -19,16 +19,16 @@ export default class Tsi18nInterpolatePlugin extends Tsi18nPlugin<
     ) => (param: unknown) => string
   ): InterpolateFn {
     return (params) => {
-      return serializedData.payload
+      return serializedData.p
         .map((part) => {
           switch (typeof part) {
             case "string":
               return part;
             case "object": {
-              const value = params[part.p];
+              const value = params[part.r];
 
               if (typeof value === "undefined") {
-                throw new Error(`Missing parameter "${part.p}"`);
+                throw new Error(`Missing parameter "${part.r}"`);
               }
 
               if (isSerializedPluginData(part)) {

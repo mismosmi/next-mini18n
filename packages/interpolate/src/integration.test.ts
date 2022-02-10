@@ -3,9 +3,13 @@ import i from "./index";
 import InterpolatePlugin from "./plugin";
 
 describe("@tsi18n/interpolate", () => {
-  const store = new TranslationStore();
+  let store: TranslationStore;
 
-  store.registerPlugins([InterpolatePlugin]);
+  beforeEach(() => {
+    store = new TranslationStore();
+    store.registerPlugins([InterpolatePlugin]);
+  });
+
   it("interpolates a simple greeting", () => {
     const i18n = {
       greeting: {
@@ -44,26 +48,6 @@ describe("@tsi18n/interpolate", () => {
     };
 
     const transport = loadTranslations(i18n, "en");
-
-    const [
-      ,
-      [
-        [
-          ,
-          {
-            hello: {
-              payload: [, name],
-            },
-          },
-        ],
-      ],
-    ] = transport;
-
-    expect(name).toStrictEqual({
-      p: "name",
-      $plugin: "@tsi18n/i",
-      payload: [{ p: "first" }, " ", { p: "last" }],
-    });
 
     store.update(transport);
 

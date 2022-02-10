@@ -49,7 +49,7 @@ describe("@tsi18n/core", () => {
         en: {
           test: {
             $plugin: "tsi18n-plugin-test",
-            payload: null,
+            p: null,
           },
         },
       },

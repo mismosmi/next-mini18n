@@ -2,7 +2,7 @@ import { SerializedPluginData } from "@tsi18n/core";
 
 export type PluginKey = "@tsi18n/i";
 
-type Replacement = { p: string };
+type Replacement = { r: string };
 type NumberReplacement = Replacement & { d?: number };
 type PluginReplacement = Replacement &
   SerializedPluginData<unknown, (param: unknown) => string>;

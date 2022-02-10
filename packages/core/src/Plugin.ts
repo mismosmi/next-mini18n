@@ -1,7 +1,7 @@
 export interface SerializedPluginData<P, V> {
   $plugin: string;
-  value?: V;
-  payload: P;
+  v?: V;
+  p: P;
 }
 
 export abstract class Tsi18nPlugin<P, V> {
