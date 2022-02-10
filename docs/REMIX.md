@@ -13,7 +13,7 @@ return filterDataRequestTranslations(request, response)
 ```
 which modifies the response.
 
-For an example see [entry.server.tsx](examples/example-remix/app/entry.server.tsx)
+For an example see `examples/example-remix/app/entry.server.tsx`
 
 ## Usage
 As remix.run does not provide its own localization solution you'll need to
