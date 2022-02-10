@@ -37,8 +37,8 @@ export default i18n
 ```
 
 * Make your framework pass them to the client
-    * NextJS:
 ```ts
+// NextJS
 import { loadTranslations } from "@tsi18n/next"
 
 export const getServerSideProps = async (cx) => ({
@@ -47,8 +47,8 @@ export const getServerSideProps = async (cx) => ({
     }
 })
 ```
-    * Remix.run
 ```ts
+// remix.run
 import { loadTranslations } from "@tsi18n/remix"
 
 export const loader = async ({ params }) => ({
@@ -76,4 +76,4 @@ does not and can not work with `getStaticProps`.
 * You get type errors when removing or renaming translations that are used somewhere
 
 ## Examples
-Well, take a look in the examples-folder. There's one with NextJS and one with Remix.run
+Well, take a look in the examples-folder. There's one with NextJS and one with remix.run
