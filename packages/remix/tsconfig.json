@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig",
-  "compilerOptions": {
-    "outDir": "./esm"
-  },
-  "include": ["src/**/*.tsx", "src/**/*.ts"],
-  "exclude": ["**/*.test.tsx", "**/*.test.ts"]
-}

@@ -12,14 +12,14 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "importHelpers": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "./esm"
   },
   "include": ["src/**/*.tsx", "src/**/*.ts"],
   "exclude": ["**/*.test.tsx", "**/*.test.ts"]
