@@ -1328,10 +1328,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-mini18n@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/next-mini18n/-/next-mini18n-0.1.2.tgz#8297ee977c79040e7a8f3da3e6e4cf3348552020"
-  integrity sha512-uqehqNVs71fADXSG2csy3XnvCUhoP0DbElCzfN5YosjpK0lwmZ35KMKghFm3wFy81LglruPyBKhhJucADifdUA==
+next-mini18n@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/next-mini18n/-/next-mini18n-0.1.3.tgz#5be77311d87d74f661aad7e351d96475412f1ac0"
+  integrity sha512-Ww7cgjDM/dKoqhG0cPPTZRGO3/Jk4gd0acnR6fio2bv2PqlEkkGfaJ4gMANzwyRObdm1DEyv4pXwADdVOKu7+w==
 
 next@12.0.8:
   version "12.0.8"

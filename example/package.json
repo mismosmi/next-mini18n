@@ -9,7 +9,7 @@
     "lint": "next lint && tsc"
   },
   "dependencies": {
-    "next-mini18n": "0.1.2",
+    "next-mini18n": "0.1.4",
     "cookies": "^0.8.0",
     "next": "12.0.8",
     "react": "17.0.2",
