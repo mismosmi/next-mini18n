@@ -52,4 +52,4 @@ export default function HomePage() {
 * It uses next/dynamic under the hood and therefore loads translations lazily _after_ the first render cycle.
 
 ## Examples
-There's an example in the example-folder.
+There's an example in the [example-folder](https://github.com/mismosmi/tsi18n/tree/main/example).
