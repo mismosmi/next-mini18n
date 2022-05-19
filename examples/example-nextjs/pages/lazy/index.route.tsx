@@ -10,6 +10,11 @@ export default function LazyExample() {
     <div>
       <Hello />
       <Greeting name="Michel" />
+
+      <Hello>{(hello) => <span>This site said {hello}</span>}</Hello>
+      <Greeting name="Michel">
+        {(greeting) => <div>Greeting greets {greeting}</div>}
+      </Greeting>
     </div>
   );
 }

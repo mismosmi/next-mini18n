@@ -1,6 +1,6 @@
 const de = {
   Hello: "Hallo Welt",
-  Greeting: (props: { name: string }) => <h1>Hallo, {props.name}</h1>,
+  Greeting: (props: { name: string }) => `Hallo, ${props.name}`,
 };
 
 export default de;
