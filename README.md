@@ -1,5 +1,8 @@
 # next-mini18n
-## A minimal, type-safe internationalization library
+
+This has nothing to do with the package "mini18n" on npm.
+
+## A minimal, type-safe internationalization library for Next.js
 
 ### Goals
 * Minimal wire transfer: Don't send all translations on each page load.
