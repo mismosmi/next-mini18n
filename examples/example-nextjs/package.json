@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tsi18n/interpolate": "0.1.0",
+    "@tsi18n/lazy": "0.1.0",
     "@tsi18n/next": "0.1.0",
     "cookies": "^0.8.0",
     "next": "12.0.8",
