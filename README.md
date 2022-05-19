@@ -54,5 +54,30 @@ export default function HomePage() {
 ## What's less cool about this
 * It uses next/dynamic under the hood and therefore loads translations lazily _after_ the first render cycle.
 
+
+## Features
+* Simple Translations
+```ts
+const en = {
+    Hello: "Hello World"
+}
+```
+* Interpolation
+```ts
+const en = {
+    Greeting: (props: { name: string }) => `Hello, ${props.name}`
+}
+```
+* JSX
+```tsx
+const en = {
+    Greeting: (props: { name: string }) => <span>Hello, <b>{props.name}</b></span>
+}
+```
+* Render Prop support
+```tsx
+<Hello>{(hello) => <span>In {locale} Hello means {hello}</span>}</Hello>
+```
+
 ## Examples
 There's an example in the [example-folder](https://github.com/mismosmi/tsi18n/tree/main/example).
