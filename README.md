@@ -30,8 +30,11 @@ export default en
 ```ts
 // pages/index.tsx
 import mini18n from "next-mini18n"
+// this is imported just for the typing
+// and won't be included in the bundle
+import en from "i18n/en"
 
-const { Hello, World } = mini18n((locale) => import(`i18n/${locale}`))
+const { Hello, World } = mini18n<typeof en>((locale) => import(`i18n/${locale}`))
 ```
 
 * Use them in your component:
