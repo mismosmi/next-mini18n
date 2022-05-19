@@ -1,13 +1,13 @@
 {
   "name": "next-mini18n",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Simple Internationalization library",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "author": "Michel Smola <a@michelsmola.de>",
   "license": "MIT",
   "private": false,
-  "repo": "github:mismosmi/next-mini18n",
+  "repository": "github:mismosmi/next-mini18n",
   "scripts": {
     "build": "tsc && tsc -p tsconfig.cjs.json",
     "dev:esm": "tsc --watch",
