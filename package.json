@@ -1,20 +1,37 @@
 {
-  "name": "tsi18n",
-  "version": "0.1.0",
+  "name": "next-mini18n",
+  "version": "0.1.1",
   "description": "Simple Internationalization library",
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "author": "Michel Smola <a@michelsmola.de>",
+  "license": "MIT",
+  "private": false,
   "scripts": {
-    "build:core": "yarn workspace @tsi18n/core run build",
-    "build:react": "yarn workspace @tsi18n/react run build",
-    "build:next": "yarn workspace @tsi18n/next run build",
-    "build:remix": "yarn workspace @tsi18n/remix run build",
-    "build:interpolate": "yarn workspace @tsi18n/interpolate run build",
-    "bootstrap": "yarn build:core && yarn build:react && yarn build",
-    "build": "yarn workspaces run build",
-    "lint": "yarn workspaces run lint"
-  }
+    "build": "tsc && tsc -p tsconfig.cjs.json",
+    "dev:esm": "tsc --watch",
+    "dev:cjs": "tsc -p tsconfig.cjs.json --watch",
+    "dev": "concurrently 'yarn watch:esm' 'yarn watch:cjs'",
+    "lint": "prettier --write src && eslint --fix src/**/*.ts && tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "concurrently": "^7.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "next": "^12.0.10",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "peerDependencies": {
+    "next": "^12.0.10",
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "sideEffects": false
 }
