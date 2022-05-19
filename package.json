@@ -1,6 +1,6 @@
 {
   "name": "next-mini18n",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple Internationalization library",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -30,8 +30,12 @@
     "next": "^12.0.10",
     "react": "^17.0.2"
   },
-  "dependencies": {
-    "tslib": "^2.3.1"
-  },
+  "dependencies": {},
+  "files": [
+    "esm",
+    "cjs",
+    "README.md",
+    "package.json"
+  ],
   "sideEffects": false
 }
